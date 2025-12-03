@@ -1,3 +1,4 @@
+"""Training initial kaggle database"""
 import os
 import shutil
 from pathlib import Path
