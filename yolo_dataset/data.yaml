@@ -1,0 +1,8 @@
+# Rock Paper Scissors Dataset
+path: C:\Users\glkar\OneDrive\learning python\jackfruit\yolo_dataset
+train: images/train
+val: images/val
+
+# Classes
+nc: 3
+names: ['rock', 'paper', 'scissors']
