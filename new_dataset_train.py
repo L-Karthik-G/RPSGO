@@ -1,5 +1,5 @@
 """
-Optimized Training Script for Rock Paper Scissors Detection
+Optimized Training Script for Rock Paper Scissors Detection using roboflow dataset
 Dataset: ~3200 images
 Hardware: RTX 5050 (8GB VRAM) + 16GB RAM
 """
