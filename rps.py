@@ -10,6 +10,7 @@ import sys
 import time
 from typing import Tuple, Optional, Dict
 
+
 # ============== CONFIGURATION ==============
 # Path to your YOLO model weights
 MODEL_PATH = 'runs/detect/rps_optimized/weights/best.pt'
@@ -27,6 +28,8 @@ GESTURE_COLORS: Dict[str, Tuple[int, int, int]] = {
 print("="*60)
 print("STARTING GPU-OPTIMIZED GAME...")
 print("="*60)
+name_1 = input("Enter name for Player 1: ").strip() or "Player 1"
+name_2 = input("Enter name for Player 2: ").strip() or "Player 2"
 
 # ============== LOAD MODEL & DEVICE CHECK ==============
 DEVICE = 'cpu'
@@ -248,7 +251,7 @@ try:
             cv2.putText(frame, msg, (w//2 - 250, h//2), cv2.FONT_HERSHEY_SIMPLEX, 1, (200, 200, 200), 2)
         
         # 6. DRAW SCOREBOARD
-        score_board = f"P1: {p1_score}  |  Draws: {draws}  |  P2: {p2_score}"
+        score_board = f"{name_1}: {p1_score}  |  Draws: {draws}  |  {name_2}: {p2_score}"
         cv2.rectangle(frame, (w//2 - 200, 0), (w//2 + 200, 40), (0,0,0), -1) 
         cv2.putText(frame, score_board, (w//2 - 180, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
 
