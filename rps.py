@@ -4,7 +4,10 @@ Uses a GPU (device='cuda:0') for ultra-fast YOLO inference,
 and implements a game state machine to prevent frame freezing.
 This version detects hands anywhere on the player's side of the screen.
 """
+<<<<<<< HEAD
 
+=======
+>>>>>>> d06c91da98281b1556a468bfd83832f960081a67
 import cv2
 from ultralytics import YOLO
 import sys
@@ -69,7 +72,11 @@ if not cap.isOpened():
     print("❌ Camera failed to open. Check drivers/permissions.")
     sys.exit()
 
+<<<<<<< HEAD
 window_name = 'Rock Paper Scissors Go (RPSGO)'
+=======
+window_name = 'Rock Paper Scissors Arena (GPU Active)'
+>>>>>>> d06c91da98281b1556a468bfd83832f960081a67
 cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
 cv2.resizeWindow(window_name, 1280, 720)
 
@@ -190,8 +197,13 @@ try:
         
         # Draw Split Line & Labels
         cv2.line(frame, (mid, 0), (mid, h), (100, 100, 100), 2)
+<<<<<<< HEAD
         #cv2.putText(frame, "PLAYER 1", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
         #cv2.putText(frame, "PLAYER 2", (mid + 50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+=======
+        cv2.putText(frame, "PLAYER 1", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+        cv2.putText(frame, "PLAYER 2", (mid + 50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+>>>>>>> d06c91da98281b1556a468bfd83832f960081a67
 
         # Determine which boxes/gestures to draw (live or locked)
         box_p1 = current_p1_box
@@ -221,10 +233,17 @@ try:
                     label_suffix = " (DRAW)"
                 elif (is_p1 and player_winner == 'p1') or (not is_p1 and player_winner == 'p2'):
                     color = (0, 255, 0) # Green for win
+<<<<<<< HEAD
                     label_suffix = " (WON)"
                 else:
                     color = (0, 0, 255) # Red for loss
                     label_suffix = " (LOST)"
+=======
+                    label_suffix = " (WINNER)"
+                else:
+                    color = (0, 0, 255) # Red for loss
+                    label_suffix = " (LOSER)"
+>>>>>>> d06c91da98281b1556a468bfd83832f960081a67
             
             cv2.rectangle(frame, (x1, y1), (x2, y2), color, 4)
             label = f"{'P1' if is_p1 else 'P2'}: {gesture.upper()}{label_suffix}"
@@ -239,8 +258,13 @@ try:
             cv2.putText(frame, "Press SPACE for next round", (w//2 - 180, h - 50), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
 
         elif game_state == 'PLAYING':
+<<<<<<< HEAD
             msg = "SHOW HANDS NOW! (move hands to fit in frame!)"
             cv2.putText(frame, msg, (w//2 - 300, h//2), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
+=======
+            msg = "SHOW HANDS NOW! (Locking soon...)"
+            cv2.putText(frame, msg, (w//2 - 250, h//2), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
+>>>>>>> d06c91da98281b1556a468bfd83832f960081a67
             
         elif game_state == 'COUNTDOWN':
              msg = "Get ready to show your hands!"
