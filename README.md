@@ -1,4 +1,4 @@
- # RPSGO
+# RPSGO
 
 This project is a real-time, two-player Rock Paper Scissors game that uses computer vision and deep learning to detect hand gestures. It is specifically optimized to leverage an NVIDIA GPU (via CUDA) for low-latency inference, ensuring a smooth and responsive gaming experience.
 
